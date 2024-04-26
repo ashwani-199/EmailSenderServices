@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container text-center">
+  <h1>File upload for Bulk Email Sender</h1>
+  <br /><br />
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFileSm" class="form-label">Crediantials</label>
+      <input
+        class="form-control form-control-sm"
+        id="formFileSm"
+        type="file"
+        name="file"
+        accept=".csv"
+      />
+    </div>
+    <button class="btn btn-primary mb-3" name="form1" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+{% endblock %}

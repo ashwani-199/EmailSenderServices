@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container text-center">
+  <h1>File upload for Bulk Email Sender</h1>
+  <br /><br />
+  <h6>
+    Sure, when creating a CSV file for bulk email sending, the two essential
+    columns are "Name" and "Email". The "Name" column should contain the
+    recipient's full name, while the "Email" column should have their
+    corresponding email address. This format allows you to personalize your
+    emails and ensure they are delivered to the correct recipients. Here's an
+    example: Name,Email John Doe,[email protected] Jane Doe,[email protected]
+    Remember, the order of the columns doesn't matter as long as you
+    consistently use the same format throughout the CSV file.
+  </h6>
+  <h5>The Extension should be .csv.</h5>
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFileSm" class="form-label">Recipients</label>
+      <input
+        class="form-control form-control-sm"
+        id="formFileSm"
+        type="file"
+        name="file"
+        accept=".csv"
+      />
+    </div>
+    <button class="btn btn-primary mb-3" name="form1" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+{% endblock %}
