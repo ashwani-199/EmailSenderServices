@@ -23,6 +23,7 @@ flask-marshmallow==0.15.0
 Flask-SQLAlchemy==3.0.5
 flatbuffers==24.3.7
 greenlet==2.0.2
+gunicorn==22.0.0
 humanfriendly==10.0
 idna==3.6
 imageio==2.34.0
