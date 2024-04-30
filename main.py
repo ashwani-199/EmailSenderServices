@@ -1,6 +1,6 @@
 from common_module.read_file import ReadCSV
 from common_module.send_mail import SendMail
-from flask import Flask, render_template, request, jsonify, make_response, redirect, url_for, message_flashed
+from flask import Flask, render_template, request, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
 
@@ -23,8 +23,6 @@ smtp_port = 587
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
- # SendMail.send_mail(recipients, smtp_server, smtp_port, sender_details))
 sender_details = ReadCSV.read_file_sender(csv_file2)
 
 @app.route('/', methods=['POST', 'GET'])
@@ -37,7 +35,6 @@ def upload_file():
             save_location = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(save_location)
             recipients = ReadCSV.read_file(save_location)
-            print(recipients)
             SendMail.send_mail(recipients, smtp_server, smtp_port, sender_details)
             return redirect(url_for('operation'))
 
@@ -45,7 +42,7 @@ def upload_file():
 
 @app.route('/operation',methods=['GET'])
 def operation():
-    return "Email is successfully sent!"
+    return "All Email are successfully sent!"
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
